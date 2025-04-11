@@ -7,13 +7,13 @@ void draw(){
   for(int i=0; i<n; i++){
     ellipse(x[i], y[i]-s[i]/2, s[i]*0.75, s[i]);
     if(mousePressed && i==n-1) s[i] += 2; // 一直壓著mouse會變大
-    if(mousePressed==false || i!= n-1 || y[i]>s[i]) y[i]-=2; //沒有按 mouse 就飛上去
+    if((mousePressed==false || i!= n-1) && y[i]>s[i]) y[i]-=2; //沒有按 mouse 就飛上去
   }
 }
-float []x = new float[100]; //
+float []x = new float[100]; // Java 的陣列宣告
 float []y = new float[100];
-float []s = new float[100]; //
-int n = 0; //
+float []s = new float[100]; // 可放 100 個氣球
+int n = 0; //現在有 0 個氣球
 void mousePressed(){
   x[n] = mouseX; // 氣球座標
   y[n] = mouseY; 
